@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: linear-gradient(160deg, #0f172a 0%, #1e293b 60%, #334155 100%);
+    font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+    padding: 48px 56px;
+    min-height: 100vh;
+  }
+  .title {
+    text-align: center;
+    color: #e2e8f0;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    text-align: center;
+    color: #94a3b8;
+    font-size: 15px;
+    margin-bottom: 36px;
+  }
+  .layer {
+    margin: 0 auto 18px;
+    max-width: 1100px;
+  }
+  .layer-label {
+    display: inline-block;
+    color: #64748b;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .box-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .box {
+    background: linear-gradient(150deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid #475569;
+    border-radius: 10px;
+    padding: 12px 18px;
+    color: #cbd5e1;
+    font-size: 14px;
+    text-align: center;
+    min-width: 120px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+  }
+  .box .name { font-weight: 600; color: #f1f5f9; }
+  .box .desc { font-size: 11px; color: #94a3b8; margin-top: 3px; }
+  .box.core { border-color: #38bdf8; background: linear-gradient(150deg, #0c4a6e 0%, #0f172a 100%); }
+  .box.storage { border-color: #34d399; background: linear-gradient(150deg, #065f46 0%, #0f172a 100%); }
+  .arrow {
+    text-align: center;
+    color: #38bdf8;
+    font-size: 22px;
+    line-height: 1;
+    margin: 4px 0;
+  }
+  .legend {
+    text-align: center;
+    color: #64748b;
+    font-size: 11px;
+    margin-top: 22px;
+  }
+</style>
+</head>
+<body>
+  <div class="title">任务管理看板 · 系统架构</div>
+  <div class="subtitle">Vue3 + Vite 纯前端 · 组件化分层 · localStorage 持久化</div>
+
+  <div class="layer">
+    <div class="layer-label">浏览器 / 用户界面</div>
+    <div class="box-row">
+      <div class="box"><div class="name">浏览器</div><div class="desc">操作入口</div></div>
+    </div>
+  </div>
+
+  <div class="arrow">▼</div>
+
+  <div class="layer">
+    <div class="layer-label">根组件</div>
+    <div class="box-row">
+      <div class="box core"><div class="name">App.vue</div><div class="desc">根组件 · 编排</div></div>
+    </div>
+  </div>
+
+  <div class="arrow">▼</div>
+
+  <div class="layer">
+    <div class="layer-label">视图组件层</div>
+    <div class="box-row">
+      <div class="box"><div class="name">NavBar</div><div class="desc">导航栏 · 统计</div></div>
+      <div class="box"><div class="name">KanbanColumn ×3</div><div class="desc">看板列 · 拖放</div></div>
+      <div class="box"><div class="name">AddTaskModal</div><div class="desc">新增任务弹窗</div></div>
+      <div class="box"><div class="name">ThemeSelector</div><div class="desc">主题切换</div></div>
+      <div class="box"><div class="name">FunToast</div><div class="desc">趣味提示</div></div>
+      <div class="box"><div class="name">Celebration</div><div class="desc">庆祝动画</div></div>
+    </div>
+  </div>
+
+  <div class="arrow">▼</div>
+
+  <div class="layer">
+    <div class="layer-label">组合式函数层（Composables）</div>
+    <div class="box-row">
+      <div class="box core"><div class="name">useKanban</div><div class="desc">看板状态管理</div></div>
+      <div class="box"><div class="name">useToast</div><div class="desc">全局提示</div></div>
+      <div class="box"><div class="name">useTheme</div><div class="desc">主题管理</div></div>
+      <div class="box"><div class="name">useRipple</div><div class="desc">涟漪效果</div></div>
+    </div>
+  </div>
+
+  <div class="arrow">▼</div>
+
+  <div class="layer">
+    <div class="layer-label">工具与存储层</div>
+    <div class="box-row">
+      <div class="box storage"><div class="name">localStorage</div><div class="desc">数据持久化</div></div>
+      <div class="box"><div class="name">storage / timeFormat / cssVariables</div><div class="desc">工具函数</div></div>
+      <div class="box"><div class="name">themes / toastMessages</div><div class="desc">配置</div></div>
+    </div>
+  </div>
+
+  <div class="legend">任务数据经 useKanban 状态管理读写，自动同步至 localStorage 实现持久化</div>
+</body>
+</html>

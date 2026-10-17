@@ -361,3 +361,16 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+# Removed legacy coursework (kept locally)
+HTML/
+Java/
+Python/
+lib/
+替代内容/
+
+# Local runtimes & artifacts
+node22/
+nul
+
+# TREK runtime data (DB, uploads, logs with credentials)
+TREK/data/
